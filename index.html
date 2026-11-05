@@ -47,13 +47,11 @@
   const REPO = 'jachben/voxcut';
   const $ = id => document.getElementById(id);
   const q = new URLSearchParams(location.search);
-  // osobní odkaz majitele: …/voxcut/#k=<klíč> – klíč zůstane jen v tomhle zařízení (část za # se na server neposílá)
+  // osobní odkaz majitele: …/voxcut/#k=<klíč> – část za # se na server neposílá. Zůstává v adrese schválně:
+  // ikona na ploše iPhonu má vlastní úložiště, takže si klíč musí nést v adrese, ze které se přidala.
   const h = new URLSearchParams(location.hash.slice(1));
-  if (h.get('k')) {
-    try { localStorage.setItem('voxcut-klic', h.get('k')); } catch {}
-    history.replaceState(null, '', location.pathname + location.search);
-  }
-  let klic = null; try { klic = localStorage.getItem('voxcut-klic'); } catch {}
+  if (h.get('k')) { try { localStorage.setItem('voxcut-klic', h.get('k')); } catch {} }
+  let klic = h.get('k'); if (!klic) { try { klic = localStorage.getItem('voxcut-klic'); } catch {} }
   const appka = navigator.standalone === true || matchMedia('(display-mode: standalone)').matches;
   const ua = navigator.userAgent;
   const ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
@@ -65,7 +63,7 @@
 
   // příchod z tlačítka „Stáhnout do mobilu“: na plochu se má přidat tahle stálá stránka, ne dočasná adresa
   if (q.get('pridat') === '1' && !appka && (ios || android)) {
-    history.replaceState(null, '', location.pathname);
+    history.replaceState(null, '', location.pathname + location.hash);   // bez ?pridat, klíč za # zůstane
     $('tocka').remove();
     $('nadpis').textContent = 'Přidej Voxcut na plochu';
     if (ios) {
