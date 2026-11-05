@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Voxcut</title>
+<meta name="description" content="Voxcut – české titulky k videu za pár minut.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="app-icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Voxcut">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="theme-color" content="#0b0b0d">
+<style>
+  :root{color-scheme:dark}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:#0b0b0d;color:#ececef;font:16px/1.5 -apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif}
+  main{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:32px 24px calc(32px + env(safe-area-inset-bottom));text-align:center}
+  img{border-radius:22px;box-shadow:0 18px 40px -16px #7466f0aa}
+  h1{margin:6px 0 0;font-size:22px;letter-spacing:-.02em}
+  p{margin:0;max-width:340px;color:#a3a3ad}
+  .tocka{width:22px;height:22px;border-radius:50%;border:2.5px solid #2f2f36;border-top-color:#7466f0;animation:t 0.9s linear infinite}
+  @keyframes t{to{transform:rotate(360deg)}}
+  ol{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:12px;text-align:left;max-width:340px}
+  li{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:14px;background:#17171b;border:1px solid #2f2f36}
+  li b{color:#fff}
+  li::before{content:attr(data-n);flex:none;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#7466f0;color:#fff;font-weight:700;font-size:14px}
+  button,a.tl{font:600 16px/1 inherit;font-family:inherit;padding:14px 22px;border-radius:12px;border:1px solid #2f2f36;background:#17171b;color:#ececef;text-decoration:none;cursor:pointer}
+  .hlavni{background:#7466f0;border-color:#7466f0;color:#fff}
+  .sipka{position:fixed;left:50%;bottom:calc(6px + env(safe-area-inset-bottom));transform:translateX(-50%);font-size:30px;animation:s 1s ease-in-out infinite}
+  @keyframes s{50%{transform:translate(-50%,7px)}}
+</style>
+</head>
+<body>
+<main id="obsah">
+  <img src="app-icon-192.png" width="84" height="84" alt="">
+  <h1 id="nadpis">Otevírám Voxcut…</h1>
+  <p id="text">Chvilku strpení.</p>
+  <div class="tocka" id="tocka"></div>
+</main>
+<script>
+// Stálá adresa Voxcutu. Voxcut běží na Macu přes tunel, jehož adresa se občas změní (Mac usne, ztratí internet…).
+// Server na Macu sem při každé změně zapíše aktuální adresu (adresa.json) a tahle stránka na ni vždy přesměruje.
+(async () => {
+  const REPO = 'jachben/voxcut';
+  const $ = id => document.getElementById(id);
+  const q = new URLSearchParams(location.search);
+  // osobní odkaz majitele: …/voxcut/#k=<klíč> – klíč zůstane jen v tomhle zařízení (část za # se na server neposílá)
+  const h = new URLSearchParams(location.hash.slice(1));
+  if (h.get('k')) {
+    try { localStorage.setItem('voxcut-klic', h.get('k')); } catch {}
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+  let klic = null; try { klic = localStorage.getItem('voxcut-klic'); } catch {}
+  const appka = navigator.standalone === true || matchMedia('(display-mode: standalone)').matches;
+  const ua = navigator.userAgent;
+  const ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const android = /Android/.test(ua);
+
+  // Android: systémové okno instalace (Chrome) – nabídne se tlačítkem
+  let nabidka = null;
+  addEventListener('beforeinstallprompt', e => { e.preventDefault(); nabidka = e; });
+
+  // příchod z tlačítka „Stáhnout do mobilu“: na plochu se má přidat tahle stálá stránka, ne dočasná adresa
+  if (q.get('pridat') === '1' && !appka && (ios || android)) {
+    history.replaceState(null, '', location.pathname);
+    $('tocka').remove();
+    $('nadpis').textContent = 'Přidej Voxcut na plochu';
+    if (ios) {
+      $('text').textContent = 'Tahle adresa se nikdy nezmění, takže ikona bude fungovat pořád.';
+      $('obsah').insertAdjacentHTML('beforeend', `<ol>
+        <li data-n="1"><span>Klepni dole v Safari na <b>Sdílet</b> (v novém Safari je pod <b>⋯</b>)</span></li>
+        <li data-n="2"><span>Vyber <b>Přidat na plochu</b>, nech zapnuté <b>Otevřít jako webovou aplikaci</b> a potvrď <b>Přidat</b></span></li>
+      </ol><a class="tl" href="./">Otevřít Voxcut bez přidání</a><div class="sipka">↓</div>`);
+    } else {
+      $('text').textContent = 'Tahle adresa se nikdy nezmění, takže aplikace bude fungovat pořád.';
+      $('obsah').insertAdjacentHTML('beforeend', `<button class="hlavni" id="instalovat">Nainstalovat Voxcut</button>
+        <p id="tip">Když se okno neotevře: v Chromu klepni na <b>⋮</b> → <b>Instalovat aplikaci</b>.</p>
+        <a class="tl" href="./">Otevřít Voxcut</a>`);
+      $('instalovat').onclick = async () => { if (nabidka) { nabidka.prompt(); nabidka = null; } else $('tip').style.color = '#fff'; };
+    }
+    return;
+  }
+
+  // aktuální adresa: GitHub API (bez zpoždění), záložně soubor na stránce (může být pár minut starý)
+  const nacti = async pokus => {
+    const zdroje = [
+      () => fetch(`https://api.github.com/repos/${REPO}/contents/adresa.json`, { headers: { Accept: 'application/vnd.github.raw+json' }, cache: 'no-store' }),
+      () => fetch(`adresa.json?t=${Date.now()}`, { cache: 'no-store' }),
+    ];
+    if (pokus % 3) zdroje.reverse();   // API má limit dotazů – při opakovaných pokusech ho šetři
+    for (const z of zdroje) {
+      try {
+        const r = await z();
+        if (!r.ok) continue;
+        const a = (await r.json()).adresa;
+        if (/^https:\/\/[a-z0-9-]+\.trycloudflare\.com$/.test(a)) return a;
+      } catch {}
+    }
+    return null;
+  };
+  const zije = async a => {
+    try {
+      const c = new AbortController(); setTimeout(() => c.abort(), 8000);
+      const r = await fetch(a + '/api/version', { signal: c.signal, cache: 'no-store' });
+      return r.ok && (await r.json()).app === 'voxsub';
+    } catch { return false; }
+  };
+  const cil = a => q.has('stahnout') ? a + '/stahnout.html'
+    : klic ? `${a}/moje/${encodeURIComponent(klic)}/app` : a + '/app';
+
+  for (let pokus = 0; ; pokus++) {
+    const a = await nacti(pokus);
+    if (a && await zije(a)) { location.replace(cil(a)); return; }
+    $('nadpis').textContent = 'Voxcut se právě připojuje';
+    $('text').textContent = pokus < 8
+      ? 'Mac se možná probouzí nebo mění adresu. Zkouším to znovu…'
+      : 'Pořád se nedaří spojit. Zkontroluj, že je Mac zapnutý a připojený k internetu. Zkouším to dál…';
+    await new Promise(r => setTimeout(r, 5000));
+  }
+})();
+</script>
+</body>
+</html>

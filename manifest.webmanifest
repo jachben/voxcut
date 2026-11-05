@@ -1,0 +1,16 @@
+{
+  "id": "/voxcut/",
+  "name": "Voxcut – titulky k videu",
+  "short_name": "Voxcut",
+  "lang": "cs",
+  "start_url": "/voxcut/",
+  "scope": "/voxcut/",
+  "display": "standalone",
+  "background_color": "#0b0b0d",
+  "theme_color": "#0b0b0d",
+  "icons": [
+    { "src": "app-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "app-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "app-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
