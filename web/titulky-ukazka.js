@@ -1,4 +1,4 @@
-// Voxcut – živé ukázky stylů titulků na webu (telefony v úvodu a v sekci Styly)
+// Woxcut – živé ukázky stylů titulků na webu (telefony v úvodu a v sekci Styly)
 // a postupné objevování sekcí při rolování. Bez knihoven, animace běží jen ve viditelném telefonu.
 (() => {
   const klid = matchMedia('(prefers-reduced-motion: reduce)').matches;
