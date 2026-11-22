@@ -57,6 +57,12 @@
   const ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   const android = /Android/.test(ua);
 
+  // hlavní adresa v prohlížeči = prodejní web (22. 11. 2026, Jáchym: „prodejní stránka ta hlavní“).
+  // Do aplikace vede ?app (tlačítka na webu), ikona na ploše, osobní odkaz majitele (#k=) a ?stahnout / ?koupit / ?pridat.
+  if (!appka && !h.get('k') && !['app', 'stahnout', 'koupit', 'pridat'].some(k => q.has(k))) {
+    location.replace('web/' + location.hash); return;
+  }
+
   // Android: systémové okno instalace (Chrome) – nabídne se tlačítkem
   let nabidka = null;
   addEventListener('beforeinstallprompt', e => { e.preventDefault(); nabidka = e; });
@@ -71,12 +77,12 @@
       $('obsah').insertAdjacentHTML('beforeend', `<ol>
         <li data-n="1"><span>Klepni dole v Safari na <b>Sdílet</b> (v novém Safari je pod <b>⋯</b>)</span></li>
         <li data-n="2"><span>Vyber <b>Přidat na plochu</b>, nech zapnuté <b>Otevřít jako webovou aplikaci</b> a potvrď <b>Přidat</b></span></li>
-      </ol><a class="tl" href="./">Otevřít Voxcut bez přidání</a><div class="sipka">↓</div>`);
+      </ol><a class="tl" href="./?app">Otevřít Voxcut bez přidání</a><div class="sipka">↓</div>`);
     } else {
       $('text').textContent = 'Tahle adresa se nikdy nezmění, takže aplikace bude fungovat pořád.';
       $('obsah').insertAdjacentHTML('beforeend', `<button class="hlavni" id="instalovat">Nainstalovat Voxcut</button>
         <p id="tip">Když se okno neotevře: v Chromu klepni na <b>⋮</b> → <b>Instalovat aplikaci</b>.</p>
-        <a class="tl" href="./">Otevřít Voxcut</a>`);
+        <a class="tl" href="./?app">Otevřít Voxcut</a>`);
       $('instalovat').onclick = async () => { if (nabidka) { nabidka.prompt(); nabidka = null; } else $('tip').style.color = '#fff'; };
     }
     return;
@@ -106,7 +112,10 @@
       return r.ok && (await r.json()).app === 'voxsub';
     } catch { return false; }
   };
+  // ?koupit=start|pro z ceníku na webu (…/voxcut/web/) → aplikace rovnou nabídne registraci a platbu
+  const kup = q.get('koupit') === 'pro' ? 'pro' : q.has('koupit') ? 'start' : '';
   const cil = a => q.has('stahnout') ? a + '/stahnout.html'
+    : kup ? `${a}/app?predplatne&koupit=${kup}`
     : klic ? `${a}/moje/${encodeURIComponent(klic)}/app` : a + '/app';
 
   for (let pokus = 0; ; pokus++) {

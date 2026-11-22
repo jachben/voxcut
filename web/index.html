@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Voxcut – profesionální titulky k videu na pár kliknutí</title>
+<meta name="description" content="Nahraj video a Voxcut k němu udělá české titulky načasované na slovo. Kinetická typografie, 47 vyladěných stylů, úvodní nadpis, export až ve 4K. Funguje v počítači i v mobilu.">
+<link rel="canonical" href="https://jachben.github.io/voxcut/web/">
+<meta name="theme-color" content="#0b0b0f">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Voxcut">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:title" content="Voxcut – titulky k videu v češtině">
+<meta property="og:description" content="Voxcut přepíše řeč z videa a udělá z ní titulky načasované na slovo. Styly pro Reels, TikTok a Shorts, export až ve 4K.">
+<meta property="og:url" content="https://jachben.github.io/voxcut/web/">
+<meta property="og:image" content="https://jachben.github.io/voxcut/web/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Voxcut">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Poppins:ital,wght@0,800;1,900&family=Anton&family=Instrument+Serif:ital@1&family=Montserrat:ital,wght@0,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://jachben.github.io/voxcut/web/#org",
+      "name": "Voxcut",
+      "url": "https://jachben.github.io/voxcut/web/",
+      "logo": "https://jachben.github.io/voxcut/web/apple-touch-icon.png",
+      "email": "jachymbenisekk@seznam.cz"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Voxcut",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Web, iOS, Android, macOS, Windows",
+      "inLanguage": "cs",
+      "description": "Automatické titulky k videu v češtině: přepis řeči modelem Whisper Large-v3, titulky načasované na slovo, 47 vyladěných stylů včetně kinetické typografie a export v 1080p, 2K nebo 4K.",
+      "publisher": { "@id": "https://jachben.github.io/voxcut/web/#org" },
+      "offers": [
+        { "@type": "Offer", "name": "Zdarma", "price": "0", "priceCurrency": "CZK" },
+        { "@type": "Offer", "name": "Start", "price": "200", "priceCurrency": "CZK",
+          "priceSpecification": { "@type": "UnitPriceSpecification", "price": "200", "priceCurrency": "CZK", "billingDuration": "P1M" } },
+        { "@type": "Offer", "name": "Pro", "price": "350", "priceCurrency": "CZK",
+          "priceSpecification": { "@type": "UnitPriceSpecification", "price": "350", "priceCurrency": "CZK", "billingDuration": "P1M" } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="v-home">
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Voxcut – úvodní stránka">
+      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><defs><linearGradient id="vA" x1="8" y1="8" x2="44" y2="56" gradientUnits="userSpaceOnUse"><stop stop-color="#f7b0ff"/><stop offset=".4" stop-color="#b168ff"/><stop offset="1" stop-color="#6a4dff"/></linearGradient><linearGradient id="vB" x1="30" y1="54" x2="52" y2="8" gradientUnits="userSpaceOnUse"><stop stop-color="#7a52ff"/><stop offset="1" stop-color="#3f7dff"/></linearGradient><linearGradient id="vC" x1="30" y1="24" x2="62" y2="54" gradientUnits="userSpaceOnUse"><stop stop-color="#cba8ff"/><stop offset=".45" stop-color="#7f5cff"/><stop offset="1" stop-color="#4d92ff"/></linearGradient></defs><path d="M8.5 10.5 L28 53.5" stroke="url(#vA)" stroke-width="12.5" stroke-linecap="round"/><path d="M47.5 10.5 L28 53.5" stroke="url(#vB)" stroke-width="11.5" stroke-linecap="round"/><g stroke="#0b0b0f" stroke-width="10.4" stroke-linecap="round"><path d="M37 28h21"/><path d="M34.5 40h17"/><path d="M32 52h13"/></g><g stroke="url(#vC)" stroke-width="7.2" stroke-linecap="round"><path d="M37 28h21"/><path d="M34.5 40h17"/><path d="M32 52h13"/></g></svg>
+      <span>Vox<b>cut</b></span>
+    </a>
+    <nav class="nav" aria-label="Hlavní menu">
+      <a href="./#jak-to-funguje">Jak to funguje</a>
+      <a href="./#funkce">Funkce</a>
+      <a href="./#cenik">Ceník</a>
+      <a href="./#otazky">Otázky</a>
+      <a href="../?stahnout">Stáhnout</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <a class="btn sm primary" href="../?app">Vyzkoušet zdarma</a>
+  </div>
+</header>
+
+
+<main>
+  <!-- ÚVOD -->
+  <section class="v-hero">
+    <div class="v-glow" aria-hidden="true"></div>
+    <div class="wrap v-hero-in">
+      <div class="v-hero-text">
+        <h1>Profesionální titulky <span class="v-grad">na pár kliknutí.</span></h1>
+        <p class="lead">Nahraj video a za pár vteřin máš české titulky, které vypadají jako od střihače. Žádné ruční časování slov, žádné hodiny práce.</p>
+        <div class="cta">
+          <a class="btn primary v-btn" href="../?app">Vyzkoušet zdarma</a>
+          <a class="btn v-btn2" href="../?stahnout">Stáhnout aplikaci</a>
+        </div>
+        <p class="v-trustline">5 videí měsíčně zdarma, bez platební karty. Funguje v počítači i v telefonu.</p>
+      </div>
+      <div class="v-hero-demo" aria-hidden="true">
+        <div class="v-phone v-ig v-phone-big">
+          <div class="v-scene">
+            <div class="v-bg"><i></i><i></i><i></i><i></i><i></i><i></i><b></b></div>
+            <div class="v-cap" data-loop></div>
+            <div class="v-igtop"><b>Reels</b><svg viewBox="0 0 24 24"><rect x="3" y="6" width="14" height="12" rx="3"/><path d="m17 10 4-2v8l-4-2"/></svg></div>
+            <div class="v-igside">
+              <span><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><em>48,2 tis.</em></span>
+              <span><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.2A8 8 0 1 1 20 12z"/></svg><em>1 284</em></span>
+              <span><svg viewBox="0 0 24 24"><path d="M21 4 10 14"/><path d="m21 4-7 17-4-7-7-4z"/></svg><em>9 310</em></span>
+              <span><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/></svg></span>
+            </div>
+            <div class="v-igbottom"><div class="v-igu"><i></i><b>tvuj.profil</b><span>Sledovat</span></div><p>Jak dělám marketing nemovitostí 🏡</p><small>♫ Původní zvuk · tvuj.profil</small></div>
+            <div class="v-igprog"><i></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="v-marquee" aria-hidden="true"><div>
+    <span>Instagram Reels</span><span>TikTok</span><span>YouTube Shorts</span><span>Podcasty</span><span>Reklamy</span><span>Rozhovory</span><span>Kurzy</span><span>Motivační videa</span>
+    <span>Instagram Reels</span><span>TikTok</span><span>YouTube Shorts</span><span>Podcasty</span><span>Reklamy</span><span>Rozhovory</span><span>Kurzy</span><span>Motivační videa</span>
+  </div></div>
+
+  <!-- STYLY -->
+  <section class="v-sec" id="styly">
+    <div class="wrap">
+      <div class="v-head v-reveal">
+        <span class="v-kicker">Styly</span>
+        <h2>Titulky jako od střihače. Za pár vteřin.</h2>
+        <p class="sub">To, co střihač ladí hodiny – velikost každého slova, rytmus a naskakování přesně s hlasem – udělá Voxcut sám. Ty si jen vybereš, jak mají titulky vypadat.</p>
+      </div>
+      <div class="v-styles">
+        <figure class="v-reveal"><div class="v-phone"><div class="v-scene s-amber"><div class="v-cap" data-styl="kineticky"></div></div></div><figcaption><b>Kinetický</b><span>Schody, různé velikosti, barevné klíčové slovo</span></figcaption></figure>
+        <figure class="v-reveal"><div class="v-phone"><div class="v-scene s-blue"><div class="v-cap" data-styl="stack"></div></div></div><figcaption><b>Kinetický Stack</b><span>Velká písmena, klíčové slovo v rámečku</span></figcaption></figure>
+        <figure class="v-reveal"><div class="v-phone"><div class="v-scene s-rose"><div class="v-cap" data-styl="editorial"></div></div></div><figcaption><b>Editorial</b><span>Elegantní serif jako v dokumentech</span></figcaption></figure>
+        <figure class="v-reveal"><div class="v-phone"><div class="v-scene s-green"><div class="v-cap" data-styl="reels"></div></div></div><figcaption><b>Profi reels</b><span>Malá písmena a zelený důraz</span></figcaption></figure>
+      </div>
+      <p class="v-more v-reveal">Dalších přes 40 stylů od klidných titulků pro podcasty po výrazné virální. Každý si doladíš podle sebe.</p>
+    </div>
+  </section>
+
+  <!-- JAK TO FUNGUJE -->
+  <section class="v-sec" id="jak-to-funguje">
+    <div class="wrap">
+      <div class="v-head v-reveal">
+        <span class="v-kicker">Jak to funguje</span>
+        <h2>Nahraješ. Vybereš. Stáhneš.</h2>
+        <p class="sub">Od surového videa k hotovým titulkům bez jediného ručně načasovaného slova.</p>
+      </div>
+      <div class="v-steps">
+        <div class="v-step v-reveal"><span class="v-num">1</span><h3>Nahraj video</h3><p>Z počítače nebo z telefonu. Voxcut poslouchá a zapisuje každé slovo i s časem, kdy zaznělo.</p></div>
+        <div class="v-step v-reveal"><span class="v-num">2</span><h3>Vyber styl</h3><p>Klikneš na styl a hned vidíš výsledek. Text, barvy i umístění upravíš u každého titulku zvlášť.</p></div>
+        <div class="v-step v-reveal"><span class="v-num">3</span><h3>Stáhni video</h3><p>Hotové video s titulky až ve 4K, připravené pro Reels, TikTok i Shorts. Bez vodoznaku.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUNKCE -->
+  <section class="v-sec" id="funkce">
+    <div class="wrap">
+      <div class="v-head v-reveal">
+        <span class="v-kicker">Co Voxcut umí</span>
+        <h2>Všechno pro titulky na jednom místě</h2>
+        <p class="sub">Klikni na funkci a podívej se, jak vypadá ve videu.</p>
+      </div>
+      <div class="v-feat v-reveal">
+        <div class="v-tabs" role="tablist">
+          <button class="on" data-f="prepis"><b>Přesný přepis</b><span>Rozpozná češtinu i s háčky, čárkami a jmény. Každé slovo má přesný čas.</span><i></i></button>
+          <button data-f="styly"><b>Profesionální styly</b><span>Kinetická typografie i čisté titulky. Přepínáš jedním kliknutím.</span><i></i></button>
+          <button data-f="uprava"><b>Úprava každého slova</b><span>Barva, velikost, tloušťka nebo nový řádek – jen u slova, které chceš.</span><i></i></button>
+          <button data-f="nadpis"><b>Úvodní nadpis</b><span>Velký nápis na první vteřiny, který diváka zastaví ve scrollu.</span><i></i></button>
+          <button data-f="zony"><b>Bezpečné zóny</b><span>Vidíš, kam sahají tlačítka a popisek. Titulky nikdy neschováš.</span><i></i></button>
+          <button data-f="export"><b>Export až ve 4K</b><span>Hotové video bez vodoznaku, připravené pro Reels, TikTok i Shorts.</span><i></i></button>
+        </div>
+        <div class="v-feat-demo" aria-hidden="true">
+          <div class="v-phone v-ig">
+          <div class="v-scene">
+            <div class="v-bg"><i></i><i></i><i></i><i></i><i></i><i></i><b></b></div>
+            <div class="v-cap" data-feat></div>
+            <div class="v-igtop"><b>Reels</b><svg viewBox="0 0 24 24"><rect x="3" y="6" width="14" height="12" rx="3"/><path d="m17 10 4-2v8l-4-2"/></svg></div>
+            <div class="v-igside">
+              <span><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><em>48,2 tis.</em></span>
+              <span><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.2A8 8 0 1 1 20 12z"/></svg><em>1 284</em></span>
+              <span><svg viewBox="0 0 24 24"><path d="M21 4 10 14"/><path d="m21 4-7 17-4-7-7-4z"/></svg><em>9 310</em></span>
+              <span><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/></svg></span>
+            </div>
+            <div class="v-igbottom"><div class="v-igu"><i></i><b>tvuj.profil</b><span>Sledovat</span></div><p>Jak dělám marketing nemovitostí 🏡</p><small>♫ Původní zvuk · tvuj.profil</small></div>
+            <div class="v-igprog"><i></i></div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROČ VOXCUT -->
+  <section class="v-sec">
+    <div class="wrap v-why">
+      <div class="v-head v-reveal" style="text-align:left;margin:0">
+        <span class="v-kicker">Proč Voxcut</span>
+        <h2>Čeština bez kompromisů</h2>
+        <p class="sub" style="margin:0">Háčky, čárky i velká písmena u jmen. Věty se dělí tam, kde se mají, a předložka nikdy nezůstane viset na konci řádku. Titulky, za které se nemusíš stydět.</p>
+      </div>
+      <ul class="v-checks v-reveal">
+        <li><b>Česká slova se nelámou špatně</b><span>„v Praze“ zůstane spolu, nová věta začne nový titulek.</span></li>
+        <li><b>Titulky čitelné na každém pozadí</b><span>Měkký stín a obrys místo tlustých černých okrajů.</span></li>
+        <li><b>Funguje v prohlížeči i jako aplikace</b><span>Počítač, iPhone i Android. Bez App Storu.</span></li>
+        <li><b>Rozpracované video na tebe počká</b><span>Vrátíš se k němu kdykoli i s titulky a stylem.</span></li>
+      </ul>
+    </div>
+  </section>
+
+
+
+  <!-- CENÍK -->
+  <section class="v-sec" id="cenik">
+    <div class="wrap">
+      <div class="v-head v-reveal">
+        <span class="v-kicker">Ceník</span>
+        <h2>Začni zdarma. Plať, až budeš chtít víc.</h2>
+        <p class="sub">Bez závazku, zrušit můžeš kdykoli jedním tlačítkem. Všechny ceny jsou konečné.</p>
+      </div>
+      <div class="v-ceny">
+        <div class="v-cena v-reveal">
+          <h3>Zdarma</h3>
+          <p class="v-castka">0 Kč</p>
+          <p class="v-pro">Na vyzkoušení</p>
+          <ul>
+            <li>5 videí měsíčně</li>
+            <li>Video do 2 minut</li>
+            <li>Všechny styly titulků</li>
+            <li>Bez vodoznaku</li>
+          </ul>
+          <a class="btn v-btn2" href="../?app">Vyzkoušet zdarma</a>
+        </div>
+        <div class="v-cena v-cena-hl v-reveal">
+          <span class="v-stitek">Nejoblíbenější</span>
+          <h3>Start</h3>
+          <p class="v-castka">300 Kč <small>/ měsíc</small></p>
+          <p class="v-pro">Pro pravidelné tvůrce</p>
+          <ul>
+            <li>30 videí měsíčně</li>
+            <li>Video do 2 minut</li>
+            <li>Všechny styly a efekty</li>
+            <li>Rychlý export v plné kvalitě</li>
+          </ul>
+          <a class="btn primary v-btn" href="../?koupit=start">Koupit Start</a>
+        </div>
+        <div class="v-cena v-reveal">
+          <h3>Pro</h3>
+          <p class="v-castka">350 Kč <small>/ měsíc</small></p>
+          <p class="v-pro">Pro firmy a agentury</p>
+          <ul>
+            <li>50 videí měsíčně</li>
+            <li>Video do 2 minut</li>
+            <li>Všechny styly a efekty</li>
+            <li>Rychlý export v plné kvalitě</li>
+          </ul>
+          <a class="btn v-btn2" href="../?koupit=pro">Koupit Pro</a>
+        </div>
+      </div>
+      <p class="v-cena-pozn v-reveal">Platba kartou, Apple Pay nebo Google Pay přes Stripe. Předplatné se obnovuje každý měsíc, dokud ho nezrušíš. <a href="obchodni-podminky.html">Obchodní podmínky</a></p>
+    </div>
+  </section>
+
+  <!-- OTÁZKY -->
+  <section class="v-sec" id="otazky">
+    <div class="wrap">
+      <div class="v-head v-reveal">
+        <span class="v-kicker">Otázky</span>
+        <h2>Na co se lidi ptají</h2>
+        <p class="sub">Nenašel jsi odpověď? <a href="kontakt.html">Napiš nám</a>.</p>
+      </div>
+      <div class="faq v-faq v-reveal">
+        <details><summary>Jak přesný je přepis?</summary><p>U čisté řeči obvykle opravíš jen jednotlivá slova. Hudba, šum nebo víc lidí mluvících přes sebe přesnost snižují. Nejistá slova Voxcut označí a před stažením můžeš cokoli opravit.</p></details>
+        <details><summary>Funguje to v mobilu?</summary><p>Ano. Voxcut běží v prohlížeči v telefonu i v počítači a tlačítkem Stáhnout aplikaci si ho nainstaluješ jako normální aplikaci s ikonou.</p></details>
+        <details><summary>Kolik to stojí?</summary><p>Vyzkoušet můžeš zdarma: 5 videí měsíčně, stačí se zaregistrovat e-mailem. Víc videí odemkne předplatné Start za 300 Kč nebo Pro za 350 Kč měsíčně. Platíš kartou, Apple Pay nebo Google Pay a zrušit můžeš kdykoli. Podrobnosti najdeš v <a href="./#cenik">ceníku</a>.</p></details>
+        <details><summary>Jak předplatné zruším?</summary><p>V aplikaci v Můj účet → Tarif jedním tlačítkem. Předplatné doběhne do konce zaplaceného měsíce a dál se nic nestrhne. Do 14 dnů od první platby můžeš od smlouvy i odstoupit, podle <a href="obchodni-podminky.html">obchodních podmínek</a>.</p></details>
+        <details><summary>Jaké jazyky Voxcut umí?</summary><p>Češtinu, slovenštinu, angličtinu, němčinu a polštinu. Anglické video umí přeložit do češtiny.</p></details>
+        <details><summary>Bude na videu vodoznak?</summary><p>Ne. Stáhneš čisté video jen s tvými titulky.</p></details>
+        <details><summary>Co se děje s mými videi?</summary><p>Video slouží jen k vytvoření titulků a hotového videa. Nikomu ho neposíláme a nepoužíváme k ničemu jinému. Víc v <a href="ochrana-osobnich-udaju.html">zásadách ochrany osobních údajů</a>.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- VÝZVA -->
+  <section class="v-final">
+    <div class="wrap v-reveal">
+      <h2>Zkus to na svém videu</h2>
+      <p class="sub">5 videí měsíčně zdarma. Stačí e-mail.</p>
+      <div class="cta" style="justify-content:center"><a class="btn primary v-btn" href="../?app">Vyzkoušet zdarma</a><a class="btn v-btn2" href="../?stahnout">Stáhnout aplikaci</a></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="./" style="margin-bottom:14px"><span>Vox<b>cut</b></span></a>
+        <p style="margin:0 0 14px;max-width:26em">Profesionální titulky k videím pro Reels, TikTok a YouTube Shorts.</p>
+        <address>
+          Provozovatel: Jáchym Beníšek<br>
+<a href="mailto:jachymbenisekk@seznam.cz">jachymbenisekk@seznam.cz</a>
+        </address>
+      </div>
+      <div>
+        <h4>Produkt</h4>
+        <ul>
+          <li><a href="./#funkce">Funkce</a></li>
+          <li><a href="./#cenik">Ceník</a></li>
+          <li><a href="./#otazky">Časté otázky</a></li>
+          <li><a href="../?stahnout">Stáhnout aplikaci</a></li>
+          <li><a href="../?app">Přihlásit se</a></li>
+
+        </ul>
+      </div>
+      <div>
+        <h4>Informace</h4>
+        <ul>
+          <li><a href="obchodni-podminky.html">Obchodní podmínky</a></li>
+          <li><a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 Voxcut. Nejsem plátce DPH, všechny ceny jsou konečné.</p>
+  </div>
+</footer>
+<script>
+  const t = document.getElementById('top');
+  const f = () => t.classList.toggle('scrolled', scrollY > 8);
+  addEventListener('scroll', f, { passive: true }); f();
+</script>
+
+<script src="titulky-ukazka.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0b0f">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:site_name" content="Voxcut">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:image" content="https://jachben.github.io/voxcut/web/og.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Voxcut">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});</script>
+<link rel="stylesheet" href="styles.css">
+
+<title>Kontakt – Voxcut</title>
+<meta name="description" content="Kontakt na provozovatele služby Voxcut. Podpora, dotazy k předplatnému a fakturaci.">
+<link rel="canonical" href="https://jachben.github.io/voxcut/web/kontakt.html">
+</head>
+<body>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Voxcut – úvodní stránka">
+      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><defs><linearGradient id="vA" x1="8" y1="8" x2="44" y2="56" gradientUnits="userSpaceOnUse"><stop stop-color="#f7b0ff"/><stop offset=".4" stop-color="#b168ff"/><stop offset="1" stop-color="#6a4dff"/></linearGradient><linearGradient id="vB" x1="30" y1="54" x2="52" y2="8" gradientUnits="userSpaceOnUse"><stop stop-color="#7a52ff"/><stop offset="1" stop-color="#3f7dff"/></linearGradient><linearGradient id="vC" x1="30" y1="24" x2="62" y2="54" gradientUnits="userSpaceOnUse"><stop stop-color="#cba8ff"/><stop offset=".45" stop-color="#7f5cff"/><stop offset="1" stop-color="#4d92ff"/></linearGradient></defs><path d="M8.5 10.5 L28 53.5" stroke="url(#vA)" stroke-width="12.5" stroke-linecap="round"/><path d="M47.5 10.5 L28 53.5" stroke="url(#vB)" stroke-width="11.5" stroke-linecap="round"/><g stroke="#0b0b0f" stroke-width="10.4" stroke-linecap="round"><path d="M37 28h21"/><path d="M34.5 40h17"/><path d="M32 52h13"/></g><g stroke="url(#vC)" stroke-width="7.2" stroke-linecap="round"><path d="M37 28h21"/><path d="M34.5 40h17"/><path d="M32 52h13"/></g></svg>
+      <span>Vox<b>cut</b></span>
+    </a>
+    <nav class="nav" aria-label="Hlavní menu">
+      <a href="./#jak-to-funguje">Jak to funguje</a>
+      <a href="./#funkce">Funkce</a>
+      <a href="./#cenik">Ceník</a>
+      <a href="./#otazky">Otázky</a>
+      <a href="../?stahnout">Stáhnout</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <a class="btn sm primary" href="../?app">Vyzkoušet zdarma</a>
+  </div>
+</header>
+
+<main class="doc">
+  <div class="wrap">
+    <h1>Kontakt</h1>
+    <p class="meta">Odpovídáme obvykle do jednoho pracovního dne.</p>
+
+    <h2 id="formular">Napiš nám</h2>
+    <p>S čímkoli ohledně aplikace, předplatného nebo plateb nám napiš e-mail. Pokud jde o konkrétní video nebo platbu, uveď prosím e-mail, se kterým jsi registrovaný.</p>
+    <p><a class="btn primary" href="mailto:jachymbenisekk@seznam.cz?subject=Voxcut">Napsat e-mail</a></p>
+    <p class="meta" style="margin-top:14px">Můžeš psát i přímo na <a href="mailto:jachymbenisekk@seznam.cz">jachymbenisekk@seznam.cz</a>.</p>
+
+
+
+    <h2>Provozovatel</h2>
+    <div class="box">
+      <p><b>Jáchym Beníšek</b></p>
+      <p>E-mail: <a href="mailto:jachymbenisekk@seznam.cz">jachymbenisekk@seznam.cz</a></p>
+      <p>Fyzická osoba zapsaná v živnostenském rejstříku. Není plátcem DPH.</p>
+    </div>
+  </div>
+</main>
+<style>
+.kform{display:grid;gap:14px;max-width:620px;margin-top:8px}
+.kform .k2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.kform .k2{grid-template-columns:1fr}}
+.kform label{display:grid;gap:6px;font-size:14px;font-weight:600;color:var(--muted)}
+.kform input,.kform textarea,.kform select{font:16px/1.5 inherit;font-family:inherit;color:var(--text);background:var(--bg2);border:1px solid var(--line2);border-radius:10px;padding:10px 12px;width:100%;box-sizing:border-box}
+.kform input:focus,.kform textarea:focus,.kform select:focus{outline:2px solid var(--accent);outline-offset:1px}
+.kform .btn{justify-self:start;cursor:pointer}
+.kform .past{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.ok-msg,.err-msg{border-radius:12px;padding:12px 16px;font-size:15px;max-width:620px}
+.ok-msg{border:1px solid #2f5b3f;background:#11231a;color:#bfe8cc}
+.err-msg{border:1px solid #6b2f36;background:#2a1216;color:#f5c2c7}
+[hidden]{display:none!important}
+</style>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="./" style="margin-bottom:14px"><span>Vox<b>cut</b></span></a>
+        <p style="margin:0 0 14px;max-width:26em">Profesionální titulky k videím pro Reels, TikTok a YouTube Shorts.</p>
+        <address>
+          Provozovatel: Jáchym Beníšek<br>
+<a href="mailto:jachymbenisekk@seznam.cz">jachymbenisekk@seznam.cz</a>
+        </address>
+      </div>
+      <div>
+        <h4>Produkt</h4>
+        <ul>
+          <li><a href="./#funkce">Funkce</a></li>
+          <li><a href="./#cenik">Ceník</a></li>
+          <li><a href="./#otazky">Časté otázky</a></li>
+          <li><a href="../?stahnout">Stáhnout aplikaci</a></li>
+          <li><a href="../?app">Přihlásit se</a></li>
+
+        </ul>
+      </div>
+      <div>
+        <h4>Informace</h4>
+        <ul>
+          <li><a href="obchodni-podminky.html">Obchodní podmínky</a></li>
+          <li><a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 Voxcut. Nejsem plátce DPH, všechny ceny jsou konečné.</p>
+  </div>
+</footer>
+<script>
+  const t = document.getElementById('top');
+  const f = () => t.classList.toggle('scrolled', scrollY > 8);
+  addEventListener('scroll', f, { passive: true }); f();
+</script>
+
+</body>
+</html>
